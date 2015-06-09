@@ -1,0 +1,15 @@
+language: ruby
+rvm:
+  - 2.1.2
+
+env:
+  - CPLUS_INCLUDE_PATH=/usr/include/atlas C_INCLUDE_PATH=/usr/include/atlas
+
+before_install:
+   - sudo apt-get update -qq
+   - sudo apt-get install -qq libatlas-base-dev
+   - sudo apt-get install -y libgsl0-dev
+   - ruby setup.rb config
+   - ruby setup.rb setup
+
+script: sudo ruby setup.rb install
